@@ -48,3 +48,14 @@ export async function verifyAdminSession(): Promise<boolean> {
     return false
   }
 }
+
+export async function loginAdmin(username, password) {
+  const formData = new FormData();
+  formData.append("username", username);
+  formData.append("password", password);
+  return adminLoginAction(formData);
+}
+
+export async function logoutAdmin() {
+  return adminLogoutAction();
+}

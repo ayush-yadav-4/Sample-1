@@ -47,3 +47,5 @@ export function verifyAdminToken(token: string): { username: string; role: strin
     return null
   }
 }
+
+export const verifyAdminAuth = verifyAdminToken;

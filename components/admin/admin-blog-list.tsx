@@ -18,7 +18,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import { getBlogs, deleteBlog } from "@/lib/blog-actions"
+import { getBlogs, deleteBlogWrapper } from "@/lib/blog-actions"
 import { FileText, Plus, Trash, Pencil, Search, LogOut } from "lucide-react"
 import { logoutAdmin } from "@/lib/admin-actions"
 
@@ -50,7 +50,7 @@ export default function AdminBlogList() {
 
   const handleDeleteBlog = async (id) => {
     try {
-      await deleteBlog(id)
+      await deleteBlogWrapper(id)
       setBlogs(blogs.filter((blog) => blog._id !== id))
       toast({
         title: "Blog deleted",

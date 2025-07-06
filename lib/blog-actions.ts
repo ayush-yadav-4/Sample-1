@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
-import { createBlog, updateBlog, deleteBlog } from "./blog-service"
+import { createBlog, updateBlog, deleteBlog, getAllBlogs } from "./blog-service"
 
 export async function createBlogAction(formData: FormData) {
   const title = formData.get("title") as string
@@ -101,4 +101,20 @@ export async function toggleBlogPublishAction(id: string, published: boolean) {
 
   revalidatePath("/admin/blogs")
   revalidatePath("/blogs")
+}
+
+export async function getBlogs() {
+  return getAllBlogs();
+}
+
+export async function createBlogWrapper(blogData) {
+  return createBlog(blogData);
+}
+
+export async function updateBlogWrapper(id, blogData) {
+  return updateBlog(id, blogData);
+}
+
+export async function deleteBlogWrapper(id) {
+  return deleteBlog(id);
 }

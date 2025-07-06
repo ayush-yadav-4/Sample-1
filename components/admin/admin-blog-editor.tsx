@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Switch } from "@/components/ui/switch"
 import { toast } from "@/components/ui/use-toast"
-import { createBlog, updateBlog } from "@/lib/blog-actions"
+import { createBlogWrapper, updateBlogWrapper } from "@/lib/blog-actions"
 import { FileText, Save, ArrowLeft, Upload, LogOut } from "lucide-react"
 import { logoutAdmin } from "@/lib/admin-actions"
 
@@ -76,13 +76,13 @@ export default function AdminBlogEditor({ blog = null }) {
       }
 
       if (isEditing) {
-        await updateBlog(blog._id, blogData)
+        await updateBlogWrapper(blog._id, blogData)
         toast({
           title: "Blog updated",
           description: "The blog post has been updated successfully",
         })
       } else {
-        await createBlog(blogData)
+        await createBlogWrapper(blogData)
         toast({
           title: "Blog created",
           description: "The blog post has been created successfully",

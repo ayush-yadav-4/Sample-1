@@ -1,5 +1,3 @@
-"use client"
-
 import { getBlogBySlug } from "@/lib/blog-service"
 import { notFound } from "next/navigation"
 import Link from "next/link"

@@ -90,3 +90,5 @@ export async function getAllUsers(): Promise<UserProfile[]> {
     return []
   }
 }
+
+export const getUserProfile = getUserById;

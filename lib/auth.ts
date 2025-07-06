@@ -102,3 +102,5 @@ export async function createUser(name: string, email: string, password: string):
     return { success: false, message: "Failed to create user" }
   }
 }
+
+export const authOptions = {};
